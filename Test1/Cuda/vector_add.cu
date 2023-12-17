@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <assert.h>
 
-#define N 100000
+#define N 10000
 
 __global__ void vector_add(float *out, float *a, float *b, int n) {
     for(int i = 0; i < n; i++){
@@ -37,11 +37,14 @@ int main(){
     printf("d_out = %p\n", (void **) &d_out);
 
     cudaMemcpy(d_a,a,sizeof(float)*N, cudaMemcpyHostToDevice);
+    printf("a -> d_a\n");
     cudaMemcpy(d_b,b,sizeof(float)*N, cudaMemcpyHostToDevice);
+    printf("b -> d_b\n");
     // Main function
     vector_add<<<1,1>>> (d_out, d_a, d_b, N);
     cudaMemcpy(out,d_out,sizeof(float)*N, cudaMemcpyDeviceToHost);
-    int i = rand() %100000;
+    printf("d_out -> out\n");
+    int i = rand() %N;
     printf("out[%d]=%f\n",i,out[i]);
     assert(out[i] == 3);
 }
