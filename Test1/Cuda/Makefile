@@ -4,8 +4,8 @@ COPTS=-O2
 all : vector_add_c vector_add_cu
 
 run : all
-	./time vector_add_c
-	./time vector_add_cu
+	time ./vector_add_c
+	time ./vector_add_cu
 
 clean:
 	rm -rf vector_add_c vector_add_cu hello

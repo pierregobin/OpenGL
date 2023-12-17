@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define N 100000000
+#define N 100000
 
 void vector_add(float *out, float *a, float *b, int n) {
     for(int i = 0; i < n; i++){
@@ -30,4 +30,7 @@ int main(){
 
     // Main function
     vector_add(out, a, b, N);
+    int i = rand() %100000;
+    printf("out[%d]=%f\n",i,out[i]);
+
 }
