@@ -23,7 +23,7 @@ int main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_SINGLE);
-	glutInitWindowSize(300, 200);
+	glutInitWindowSize(400, 400);
 	glutInitWindowPosition(100, 100);
 	glutCreateWindow("OpenGL-Test2");
 	glutDisplayFunc(affiche);
